@@ -11,14 +11,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [14.x]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
       - name: Install and build
-        run: npm install && npm run build:webpack
+        run: npm install
+        run: npm run build:webpack
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
