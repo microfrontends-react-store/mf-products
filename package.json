@@ -1,6 +1,6 @@
 {
   "name": "@meli-store/mf-products",
-  "homepage": "https://microfrontends-react-store.github.io",
+  "homepage": "https://microfrontends-react-store.github.io/mf-products",
   "scripts": {
     "start": "webpack serve --port 8082",
     "start:standalone": "webpack serve --env standalone",
