@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { ProductDetailsScreen } from "./src/pages/ProductDetailsScreen";
-import { ProductsScreen } from "./src/pages/productsScreen";
+import { ProductDetailsScreen } from "../pages/ProductDetailsScreen";
+import { ProductsScreen } from "../pages/productsScreen";
 
 export const AppRouter = () => {
   return (
