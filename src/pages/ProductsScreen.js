@@ -13,6 +13,7 @@ export const ProductsScreen = () => {
 
   return (
     <section className="container">
+      <h1 className="display-3">Listado de productos</h1>
       <div className="row row-cols-auto">
         {products.map((product) => (
           <div className="col" key={product.id}>

@@ -6,7 +6,10 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<ProductsScreen />}></Route>
-      <Route path=":productId" element={<ProductDetailsScreen />}></Route>
+      <Route
+        path="/producto/:productId"
+        element={<ProductDetailsScreen />}
+      ></Route>
     </Routes>
   );
 };

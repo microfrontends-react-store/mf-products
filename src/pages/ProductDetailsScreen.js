@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "@meli-store/api";
+import { getProductById, addProductToCar } from "@meli-store/api";
 
 export const ProductDetailsScreen = () => {
   const [product, setProduct] = useState({});
@@ -11,8 +11,23 @@ export const ProductDetailsScreen = () => {
     getProductById(productId).then((response) => {
       response.price = currencyFormat(response.price);
       setProduct(response);
+      addProductToHistory(response);
     });
   }, [productId]);
+
+  const addProductToHistory = (product) => {
+    const history = window.localStorage.getItem("productsHistory");
+    if (history) {
+      const productsHistory = JSON.parse(history);
+      productsHistory.unshift(product);
+      window.localStorage.setItem(
+        "productsHistory",
+        JSON.stringify(productsHistory)
+      );
+    } else {
+      window.localStorage.setItem("productsHistory", JSON.stringify([product]));
+    }
+  };
 
   const currencyFormat = (num) => {
     return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -29,6 +44,15 @@ export const ProductDetailsScreen = () => {
           src={product.pictures && product.pictures[0].url}
           alt={product.pictures && product.pictures[0].id}
         />
+        <button
+          onClick={() => {
+            addProductToCar(product);
+          }}
+          type="button"
+          class="btn btn-dark"
+        >
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );
