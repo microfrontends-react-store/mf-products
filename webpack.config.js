@@ -17,6 +17,7 @@ module.exports = (webpackConfigEnv, argv) => {
 
   return merge(defaultConfig, {
     // customizations go here
+    entry: "./src/meli-store-mf-products.js",
     externals,
   });
 };
