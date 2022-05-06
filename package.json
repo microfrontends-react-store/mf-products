@@ -15,7 +15,7 @@
     "prepare": "husky install",
     "coverage": "cross-env BABEL_ENV=test jest --coverage",
     "fix": "./node_modules/.bin/eslint src --fix",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:webpack",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
